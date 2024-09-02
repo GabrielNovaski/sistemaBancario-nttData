@@ -10,7 +10,7 @@ menu = """
 > > > """
 limite = 500
 LIMITE_SAQUES = 3
-extrato = list()
+extrato = []
 saldo = 0
 numero_saques = 0
 
