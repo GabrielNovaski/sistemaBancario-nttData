@@ -14,7 +14,7 @@
 #CRIAR CONTA - O programa deve armazenar contas em uma lista, uma conta corrente e composta por: agencia, numero da conta, usuario
 #O nmero da conta e sequencial iniciando em 1. O numero da agencia e fixo: "0001". o Usuario pode ter mais de uma conta, mas uma conta pertence a somente um usuario
 
-def sacar(*, saldo, valor, extrato:list):
+def sacar(*, saldo, valor, extrato):
     saldo -= valor
     extrato.append(f'SAQUE: R${valor:.2f}')
     print(f'SAQUE REALIZADO NO VALOR DE R${valor:.2f} SEU SALDO AGORA E DE R${saldo:.2f}.')
@@ -26,7 +26,7 @@ def deposito(saldo, valor, extrato,/):
     saldo += valor
     return saldo, extrato
 
-def mostrar_extrato(extrato, saldo):
+def mostrar_extrato(saldo, *, extrato):
     if not extrato:
         print('@@@   VOCE NAO FEZ NENHUMA OPERACAO   @@@')
         return
@@ -146,7 +146,7 @@ while True:
             numero_saques +=1
 
     elif opcao == "e":
-        mostrar_extrato(extrato, saldo)
+        mostrar_extrato(saldo, extrato=extrato)
 
     elif opcao == 'lc':
         listar_contas(contas)
