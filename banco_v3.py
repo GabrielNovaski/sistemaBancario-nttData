@@ -108,6 +108,7 @@ numero_saques = 0
 usuarios = []
 contas = []
 num_conta = 1
+
 while True:
     print('='*25, 'MENU', '='*25)
     opcao = input(menu).lower()
