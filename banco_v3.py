@@ -79,7 +79,6 @@ def criar_conta(cpf, usuarios, num_conta, AGENCIA):
             print('CONTA CRIADA COM SUCESSO')
             return usuario_adicionar
 
-
 def listar_contas(contas):
     if not contas:
         print('NENHUMA CONTA ESTA CADASTRADA')
