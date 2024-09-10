@@ -26,7 +26,7 @@ def deposito(saldo, valor, extrato,/):
     saldo += valor
     return saldo, extrato
 
-def mostrar_extrato(extrato):
+def mostrar_extrato(extrato, saldo):
     if not extrato:
         print('@@@   VOCE NAO FEZ NENHUMA OPERACAO   @@@')
         return
@@ -36,6 +36,7 @@ def mostrar_extrato(extrato):
         print(op)
 
     print('\n')
+    print(f'SEU SALDO É DE R${saldo:.2f}')
 
 def usuario_existe(usuarios, cpf):
     if not usuarios:
@@ -80,6 +81,9 @@ def criar_conta(cpf, usuarios, num_conta, AGENCIA):
 
 
 def listar_contas(contas):
+    if not contas:
+        print('NENHUMA CONTA ESTA CADASTRADA')
+
     for conta in contas:
         print(f"AGENCIA:{'':<10} {conta['agencia']}")
         print(f"C/C:{'':<14} {conta['num_conta']}")
@@ -142,7 +146,7 @@ while True:
             numero_saques +=1
 
     elif opcao == "e":
-        mostrar_extrato(extrato)
+        mostrar_extrato(extrato, saldo)
 
     elif opcao == 'lc':
         listar_contas(contas)
